@@ -18,12 +18,16 @@
     "wp-coding-standards/wpcs": "^2.3",
     "phpcompatibility/phpcompatibility-wp": "*",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-    "consistence/coding-standard": "^3.10"
+    "consistence/coding-standard": "^3.10",
+    "phpstan/phpstan": "^0.12.99",
+    "szepeviktor/phpstan-wordpress": "^0.7.7"
   },
   "scripts": {
     "lint": [
-      "@phpcs"
+      "@phpcs",
+      "@phpstan"
     ],
-    "phpcs": "./vendor/bin/phpcs -p ."
+    "phpcs": "./vendor/bin/phpcs -p .",
+    "phpstan": "./vendor/bin/phpstan --memory-limit=1G"
   }
 }
