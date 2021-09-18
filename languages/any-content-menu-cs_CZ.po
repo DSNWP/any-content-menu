@@ -1,0 +1,79 @@
+# Copyright (C) 2021 Desineo
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: DSN Menu 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dsnmenu\n"
+"POT-Creation-Date: 2021-09-18 23:09+0200\n"
+"PO-Revision-Date: 2021-09-18 23:09+0200\n"
+"Last-Translator: \n"
+"Language-Team: Desineo <asistent@desineo.com>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: .git\n"
+"X-Poedit-SearchPathExcluded-2: .idea\n"
+"X-Poedit-SearchPathExcluded-3: vendor\n"
+
+#: PostType/MenuItem.php:19 PostType/MenuItem.php:39
+msgid "Menu item"
+msgstr "Menu"
+
+#: PostType/MenuItem.php:22 PostType/MenuItem.php:38 PostType/MenuItem.php:40
+msgid "Menu items"
+msgstr "Menu"
+
+#: PostType/MenuItem.php:41
+msgid "All menu items"
+msgstr "Všechna menu"
+
+#: PostType/MenuItem.php:42 PostType/MenuItem.php:45
+msgid "New menu item"
+msgstr "Nové menu"
+
+#: PostType/MenuItem.php:43
+msgid "Add new menu item"
+msgstr "Vytvořit nové menu"
+
+#: PostType/MenuItem.php:44
+msgid "Edit menu item"
+msgstr "Upravit menu"
+
+#: PostType/MenuItem.php:46
+msgid "View menu item"
+msgstr "Zobrazit menu"
+
+#: PostType/MenuItem.php:47
+msgid "Search menu items"
+msgstr "Hledat menu"
+
+#: PostType/MenuItem.php:48
+msgid "No menu items were found"
+msgstr "Žádné menu nebylo nalezeno"
+
+#: PostType/MenuItem.php:49
+msgid "No menu items were found in trash"
+msgstr "V koši není žádné menu"
+
+#~ msgid "DSN Menu"
+#~ msgstr "DSN Menu"
+
+#~ msgid "Display post content as menu item content"
+#~ msgstr "Zobrazí obsah z editoru jako položku menu"
+
+#~ msgid "Desineo"
+#~ msgstr "Desineo"
+
+#~ msgid "https://www.desineo.com"
+#~ msgstr "https://www.desineo.com"

@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Coding Standards based custom ruleset for your plugin">
+	<description>Generally-applicable sniffs for WordPress plugins.</description>
+
+	<!-- What to scan -->
+	<file>.</file>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>/node_modules/</exclude-pattern>
+
+	<!-- How to scan -->
+	<!-- Usage instructions: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage -->
+	<!-- Annotated ruleset: https://github.com/squizlabs/PHP_CodeSniffer/wiki/Annotated-ruleset.xml -->
+	<arg value="sp"/> <!-- Show sniff and progress -->
+	<arg name="basepath" value="./"/><!-- Strip the file paths down to the relevant bit -->
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/><!-- Enables parallel processing when available for faster results. -->
+
+	<rule ref="PSR12">
+        <exclude name="PSR12.Files.DeclareStatement.SpaceFoundAfterDirective" />
+        <exclude name="PSR12.Files.DeclareStatement.SpaceFoundBeforeDirectiveValue" />
+        <exclude name="PSR2.Classes.ClassDeclaration.CloseBraceAfterBody" />
+    </rule>
+
+	<!-- Rules: Check PHP version compatibility -->
+	<!-- https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions -->
+	<config name="testVersion" value="7.3-"/>
+	<!-- https://github.com/PHPCompatibility/PHPCompatibilityWP -->
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- Rules: WordPress Coding Standards -->
+	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards -->
+	<!-- https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/wiki/Customizable-sniff-properties -->
+	<config name="minimum_supported_wp_version" value="5.3"/>
+    <rule ref="WordPress">
+        <exclude name="WordPress.Files.FileName" />
+        <exclude name="WordPress.NamingConventions.ValidFunctionName"/>
+        <exclude name="WordPress.NamingConventions.ValidHookName"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName"/>
+        <exclude name="Generic.Classes.OpeningBraceSameLine" />
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing.ExtraSpaceAfterCloseParenthesis" />
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+        <exclude name="Generic.Formatting.MultipleStatementAlignment" />
+        <exclude name="WordPress.Arrays.MultipleStatementAlignment" />
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing" />
+        <exclude name="WordPress.PHP.YodaConditions.NotYoda" />
+        <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions.NoSpacesAroundArrayKeys" />
+        <exclude name="WordPress.WhiteSpace.OperatorSpacing" />
+        <exclude name="WordPress.WhiteSpace.CastStructureSpacing" />
+    </rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
+			<property name="prefixes" type="array" value="fosfaproducts"/>
+		</properties>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+                <element value="fosfaproducts" />
+            </property>
+		</properties>
+        <exclude name="WordPress.WP.I18n.NonSingularStringLiteralDomain" />
+	</rule>
+
+	<!-- Include the WordPress-Extra standard. -->
+	<rule ref="WordPress-Extra">
+		<!-- Exclude any rules here -->
+		<exclude name="WordPress.PHP.DisallowShortTernary"/>
+	</rule>
+
+	<!-- Let's also check that everything is properly documented. -->
+	<rule ref="WordPress-Docs">
+        <exclude name="Generic.Commenting.DocComment.MissingShort" />
+    </rule>
+
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+        <properties>
+            <property name="equalsSpacing" value="1"/>
+            <property name="requiredSpacesAfterOpen" value="0"/>
+            <property name="requiredSpacesBeforeClose" value="0"/>
+        </properties>
+    </rule>
+
+	<!-- Add in some extra rules from other standards. -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+
+    <rule ref="PEAR.Functions.FunctionCallSignature">
+        <properties>
+            <property name="requiredSpacesAfterOpen" value="0" />
+            <property name="requiredSpacesBeforeClose" value="0" />
+        </properties>
+    </rule>
+
+    <rule ref="vendor/consistence/coding-standard/Consistence/ruleset.xml">
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed"/>
+        <!-- we use newline after return in some cases -->
+        <exclude name="Squiz.WhiteSpace.LanguageConstructSpacing.IncorrectSingle"/>
+        <exclude name="Squiz.Commenting.FileComment.Missing" />
+        <exclude name="Squiz.Commenting.ClassComment.Missing" />
+        <exclude name="Squiz.Commenting.FileComment.SpacingAfterOpen" />
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword.NonFullyQualifiedImplements" />
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameAfterKeyword" />
+        <exclude name="SlevomatCodingStandard.Namespaces.FullyQualifiedClassNameInAnnotation" />
+        <exclude name="SlevomatCodingStandard.ControlStructures.DisallowEmpty" />
+    </rule>
+    <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+
+    <rule ref="Consistence.Exceptions.ExceptionDeclaration">
+        <properties>
+            <property name="exceptionsDirectoryName" value="Exception"/>
+        </properties>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint">
+        <properties>
+            <property name="enableNativeTypeHint" value="false" />
+        </properties>
+    </rule>
+
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Squiz.WhiteSpace.FunctionSpacing.After">
+        <severity>5</severity><!-- turned off by Consistence Coding Standard -->
+    </rule>
+
+</ruleset>
