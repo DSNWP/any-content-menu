@@ -20,7 +20,8 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
     "consistence/coding-standard": "^3.10",
     "phpstan/phpstan": "^0.12.99",
-    "szepeviktor/phpstan-wordpress": "^0.7.7"
+    "szepeviktor/phpstan-wordpress": "^0.7.7",
+    "wpreadme2markdown/wp2md": "*"
   },
   "scripts": {
     "lint": [
@@ -28,6 +29,7 @@
       "@phpstan"
     ],
     "phpcs": "./vendor/bin/phpcs -p .",
-    "phpstan": "./vendor/bin/phpstan --memory-limit=1G"
+    "phpstan": "./vendor/bin/phpstan --memory-limit=1G",
+    "readme": "./vendor/bin/wp2md -i readme.txt -o README.md"
   }
 }
