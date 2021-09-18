@@ -12,9 +12,9 @@
  * Plugin Name: Any Content Menu
  * Description: Display post content as menu item content.
  * Version: 1.0
- * Requires at least: 5.6
+ * Requires at least: 5.0
  * Tested up to: 5.8
- * Requires PHP: 7.3
+ * Requires PHP: 7.1
  * Author: DSNWP
  * Author URI: https://www.desineo.com
  * License: GPL2

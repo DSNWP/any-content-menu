@@ -19,25 +19,30 @@ class MenuModifier
 
     /**
      * Filters a menu item's starting output.
+     * Note: Menu items are decorated by wp_setup_nav_menu_item()
      *
      * @param string $itemOutput The menu item's starting HTML output.
      * @param \WP_Post|\WPML_LS_Menu_Item|object $item Menu item data object.
      * @throws \Exception
      */
-    public function renderMenuItem(string $itemOutput, object $item): string
+    public function renderMenuItem(string $itemOutput, $item): string
     {
-        if ($item->object === MenuItem::NAME) {
-            $itemOutput = preg_replace(
+        if (
+            property_exists($item, 'object')
+            && property_exists($item, 'object_id')
+            && $item->object === MenuItem::NAME
+        ) {
+            $replacedOutput = preg_replace(
                 '/<a\s(.+?)>.+<\/a>/is',
-                $this->getPostContent($item->object_id),
+                $this->getPostContent((int) $item->object_id),
                 $itemOutput
             );
         }
 
-        return $itemOutput;
+        return $replacedOutput ?? $itemOutput;
     }
 
-    private function getPostContent(string $objectId): string
+    private function getPostContent(int $objectId): string
     {
         $content = get_the_content(null, false, $objectId);
 

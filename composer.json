@@ -4,7 +4,7 @@
   "type": "wordpress-plugin",
   "description": "Display post content as menu item content.",
   "require": {
-    "php": ">=7.3"
+    "php": ">=7.1"
   },
   "extra": {
   },
@@ -18,12 +18,18 @@
     "wp-coding-standards/wpcs": "^2.3",
     "phpcompatibility/phpcompatibility-wp": "*",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-    "consistence/coding-standard": "^3.10"
+    "consistence/coding-standard": "^3.10",
+    "phpstan/phpstan": "^0.12.99",
+    "szepeviktor/phpstan-wordpress": "^0.7.7",
+    "wpreadme2markdown/wp2md": "*"
   },
   "scripts": {
     "lint": [
-      "@phpcs"
+      "@phpcs",
+      "@phpstan"
     ],
-    "phpcs": "./vendor/bin/phpcs -p ."
+    "phpcs": "./vendor/bin/phpcs -p .",
+    "phpstan": "./vendor/bin/phpstan --memory-limit=1G",
+    "readme": "./vendor/bin/wp2md -i readme.txt -o README.md"
   }
 }
