@@ -24,7 +24,7 @@ class MenuModifier
      * @param \WP_Post|\WPML_LS_Menu_Item|object $item Menu item data object.
      * @throws \Exception
      */
-    public function renderMenuItem(string $itemOutput, object $item): string
+    public function renderMenuItem(string $itemOutput, $item): string
     {
         if ($item->object === MenuItem::NAME) {
             $itemOutput = preg_replace(

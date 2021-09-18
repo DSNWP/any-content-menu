@@ -4,7 +4,7 @@
   "type": "wordpress-plugin",
   "description": "Display post content as menu item content.",
   "require": {
-    "php": ">=7.3"
+    "php": ">=7.1"
   },
   "extra": {
   },
